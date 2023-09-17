@@ -25,8 +25,8 @@ export default function PostHeader({
           <Avatar author={author} />
         </div>
         <div className="mb-6 text-lg">
-          Posted <Date dateString={date} />
-          <Categories categories={categories} />
+          {/* Posted <Date dateString={date} /> */}
+          {/* <Categories categories={categories} /> */}
         </div>
       </div>
     </>

@@ -31,13 +31,13 @@ export default function HeroPost({
             <Date dateString={date} />
           </div>
         </div>
-        <div>
+        {/* <div>
           <div
             className="text-lg leading-relaxed mb-4"
             dangerouslySetInnerHTML={{ __html: excerpt }}
           />
           <Avatar author={author} />
-        </div>
+        </div> */}
       </div>
     </section>
   )
