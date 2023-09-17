@@ -29,16 +29,6 @@ export default function Index({ allPosts: { edges }, preview }) {
     <Layout preview={preview}>
       <Head>
         <title>{`Arsmej Entertainment`}</title>
-        <Script src="https://www.googletagmanager.com/gtag/js?id=G-S653ZNY8SX" />
-        <Script id="google-analytics">
-        {`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
- 
-          gtag('config', 'G-S653ZNY8SX');
-        `}
-      </Script>
       </Head>
       <Container>
         <Intro />
