@@ -29,7 +29,8 @@ export const getStaticProps: GetStaticProps = async ({ preview = false, params }
     const changedSlug = Array.isArray(slug) ? slug[0]: slug;
     const pageBySlug = await getPageBySlug(changedSlug)
     const allPages = await getAllPagesWithSlugs()
-
+    
+    
   
     return {
       props: { pageBySlug, allPages },

@@ -234,9 +234,12 @@ export async function getPageBySlug(slug: string) {
   {
     page(id: "${slug}", idType: URI) {
       title
-      content
+      content,
+      url
     }
   }
   `);
+
+  
   return data?.page;
 }

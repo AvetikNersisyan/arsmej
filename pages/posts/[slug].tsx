@@ -16,6 +16,7 @@ import { getAllPostsWithSlug, getPostAndMorePosts } from '../../lib/api'
 export default function Post({ post, posts, preview }) {
   const router = useRouter()
   const morePosts = posts?.edges
+console.log(post, 'post');
 
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />
@@ -34,6 +35,8 @@ export default function Post({ post, posts, preview }) {
                 <title>
                   {`${post.title} | Arsmej Entertainment`}
                 </title>
+                <meta property="og:url" content={post.featuredImage.node.sourceUrl} />
+
                 <meta
                   property="og:image"
                   content={post.featuredImage?.node.sourceUrl}

@@ -1,3 +1,4 @@
+import Head from "next/head";
 
 const Page = ({ slug, loading, error, data }) => {
 
@@ -10,10 +11,16 @@ const Page = ({ slug, loading, error, data }) => {
     const content = data.content;
   
     return (
+    <>
+    {/* <Head>
+        <meta property="og:url" content={`https://yourwebsite.com/pages/${slug}`} />
+    </Head> */}
       <div>
         <h1>{data.title}</h1>
         <div dangerouslySetInnerHTML={{ __html: content }} />
       </div>
+      </>
+     
     );
   };
   
