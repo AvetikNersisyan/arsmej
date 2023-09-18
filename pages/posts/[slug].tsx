@@ -35,7 +35,7 @@ console.log(post, 'post');
                 <title>
                   {`${post.title} | Arsmej Entertainment`}
                 </title>
-                <meta property="og:url" content={post.featuredImage.node.sourceUrl} />
+                <meta property="og:title" content={post.title} />
 
                 <meta
                   property="og:image"
