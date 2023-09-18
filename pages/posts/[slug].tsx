@@ -41,6 +41,10 @@ console.log(post, 'post');
                   property="og:image"
                   content={post.featuredImage?.node.sourceUrl}
                 />
+                <meta
+                  property="og:url"
+                  content={post.featuredImage?.node.sourceUrl}
+                />
               </Head>
               <PostHeader
                 title={post.title}
