@@ -16,8 +16,6 @@ import { getAllPostsWithSlug, getPostAndMorePosts } from '../../lib/api'
 export default function Post({ post, posts, preview }) {
   const router = useRouter()
   const morePosts = posts?.edges
-console.log(post.featuredImage.node.sourceUrl, 'post');
-// console.log(router, 'post');
 
 
 
