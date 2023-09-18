@@ -7,6 +7,7 @@ interface INavigationProps {
       edges: {
         node: {
           slug: string;
+          title: string;
         };
       }[];
     };
@@ -24,7 +25,7 @@ interface INavigationProps {
                  className={styles.link}
                   href={`/pages/${edge.node.slug}`}
                   >   
-                    {edge.node.slug}
+                    {edge.node.title}
                 </Link>
              
             </li>

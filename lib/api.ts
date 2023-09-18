@@ -218,7 +218,8 @@ export async function getAllPagesWithSlugs() {
     pages(first: 10000) {
       edges {
         node {
-          slug
+          slug,
+          title,
         }
       }
     }
