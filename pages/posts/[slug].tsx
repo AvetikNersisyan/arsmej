@@ -16,8 +16,8 @@ import { getAllPostsWithSlug, getPostAndMorePosts } from '../../lib/api'
 export default function Post({ post, posts, preview }) {
   const router = useRouter()
   const morePosts = posts?.edges
-console.log(post, 'post');
-console.log(router, 'post');
+console.log(post.featuredImage.node.sourceUrl, 'post');
+// console.log(router, 'post');
 
 
 
@@ -38,19 +38,21 @@ const currentUrl = `${process.env.NEXT_PUBLIC_BASE_URL}${router.asPath}`;
             <article>
               <Head>
                 <title>
-                  {`${post.title} | Arsmej Entertainment`}
+                  {`${post.title}`}
                 </title>
                 <meta property="og:title" content={post.title} />
 
                 <meta
                   property="og:image"
-                  content={post.featuredImage?.node.sourceUrl}
+                  content={post.featuredImage.node.sourceUrl}
+                  // content={'https://images.unsplash.com/photo-1575936123452-b67c3203c357?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aW1hZ2V8ZW58MHx8MHx8fDA%3D&w=1000&q=80'}
                 />
                 <meta
                   property="og:url"
-                  content={currentUrl}
+                  content={'https://images.unsplash.com/photo-1575936123452-b67c3203c357?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aW1hZ2V8ZW58MHx8MHx8fDA%3D&w=1000&q=80'}
                 />
               </Head>
+              {/* <img src={post.featuredImage.node.sourceUrl} height={333} width={333}/> */}
               <PostHeader
                 title={post.title}
                 coverImage={post.featuredImage}

@@ -13,8 +13,6 @@ export default function Index({ allPosts: { edges }, allPages, preview }) {
   
   const heroPost = edges[0]?.node
   const morePosts = edges.slice(1)
-
-  console.log(allPages.edges);
   
   return (
     <Layout preview={preview}>
