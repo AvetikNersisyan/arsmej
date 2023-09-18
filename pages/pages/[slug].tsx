@@ -17,15 +17,17 @@ const PageBySlug = ({ pageBySlug, allPages }) => {
   <>
         <Navigation data={allPages} isLoading={false} />
 
-  <Page slug={slug as string} loading={false} error={false} data={[]} />;
+  <Page slug={slug as string} loading={false} error={false} data={pageBySlug} />;
   </>
   
   )
 };
 
 
-export const getStaticProps: GetStaticProps = async ({ preview = false }) => {
-    const pageBySlug = await getPageBySlug('sample-page')
+export const getStaticProps: GetStaticProps = async ({ preview = false, params }) => {
+    const { slug } = params; // Retrieve slug from params
+    const changedSlug = Array.isArray(slug) ? slug[0]: slug;
+    const pageBySlug = await getPageBySlug(changedSlug)
     const allPages = await getAllPagesWithSlugs()
 
   
