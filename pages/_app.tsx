@@ -1,6 +1,9 @@
 import { AppProps } from 'next/app'
 import '../styles/index.css'
 import Script from 'next/script'
+import Navigation from '../components/navigation'
+import { GetStaticProps } from 'next'
+import { getAllPagesWithSlugs } from '../lib/api'
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -17,7 +20,6 @@ function MyApp({ Component, pageProps }: AppProps) {
           gtag('config', 'G-S653ZNY8SX');
         `}
       </Script>
-
       <Component {...pageProps} />
   </>
   )

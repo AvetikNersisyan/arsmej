@@ -1,0 +1,21 @@
+/* styles/Navigation.module.css */
+.navContainer {
+    background-color: #333;
+    padding: 10px;
+  }
+  
+  .listContainer {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .listItem {
+    display: inline;
+    margin-right: 10px;
+  }
+  
+  .link {
+    color: white;
+    text-decoration: none;
+  }
+  

@@ -210,3 +210,32 @@ export async function getPostAndMorePosts(slug, preview, previewData) {
 
   return data
 }
+
+
+export async function getAllPagesWithSlugs() {
+  const data = await fetchAPI(`
+  {
+    pages(first: 10000) {
+      edges {
+        node {
+          slug
+        }
+      }
+    }
+  }
+  `);
+  return data?.pages;
+}
+
+
+export async function getPageBySlug(slug: string) {
+  const data = await fetchAPI(`
+  {
+    page(id: "${slug}", idType: URI) {
+      title
+      content
+    }
+  }
+  `);
+  return data?.page;
+}

@@ -6,30 +6,22 @@ import MoreStories from '../components/more-stories'
 import HeroPost from '../components/hero-post'
 import Intro from '../components/intro'
 import Layout from '../components/layout'
-import { getAllPostsForHome } from '../lib/api'
+import { getAllPagesWithSlugs, getAllPostsForHome } from '../lib/api'
+import Navigation from '../components/navigation'
 
-export default function Index({ allPosts: { edges }, preview }) {
+export default function Index({ allPosts: { edges }, allPages, preview }) {
   
   const heroPost = edges[0]?.node
   const morePosts = edges.slice(1)
 
-//   <!-- Google tag (gtag.js) -->
-// <script async src="https://www.googletagmanager.com/gtag/js?id=UA-79549462-12"></script>
-// <script>
-//   window.dataLayer = window.dataLayer || [];
-//   function gtag(){dataLayer.push(arguments);}
-//   gtag('js', new Date());
-
-//   gtag('config', 'UA-79549462-12');
-// </script>
-
-
-
+  console.log(allPages.edges);
+  
   return (
     <Layout preview={preview}>
       <Head>
         <title>{`Arsmej Entertainment`}</title>
       </Head>
+      <Navigation data={allPages} isLoading={false} />
       <Container>
         <Intro />
         {heroPost && (
@@ -50,9 +42,10 @@ export default function Index({ allPosts: { edges }, preview }) {
 
 export const getStaticProps: GetStaticProps = async ({ preview = false }) => {
   const allPosts = await getAllPostsForHome(preview)
+  const allPages = await getAllPagesWithSlugs()
 
   return {
-    props: { allPosts, preview },
+    props: { allPosts, allPages, preview },
     revalidate: 10,
   }
 }
