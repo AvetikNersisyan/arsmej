@@ -17,10 +17,15 @@ export default function Post({ post, posts, preview }) {
   const router = useRouter()
   const morePosts = posts?.edges
 console.log(post, 'post');
+console.log(router, 'post');
+
+
 
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />
   }
+
+const currentUrl = `${process.env.NEXT_PUBLIC_BASE_URL}${router.asPath}`;
 
   return (
     <Layout preview={preview}>
@@ -43,7 +48,7 @@ console.log(post, 'post');
                 />
                 <meta
                   property="og:url"
-                  content={post.featuredImage?.node.sourceUrl}
+                  content={currentUrl}
                 />
               </Head>
               <PostHeader
